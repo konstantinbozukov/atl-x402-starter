@@ -1,0 +1,23 @@
+[
+  { "repo": "leventilo/boltzpay", "number": 164, "note": "w1 paying fetch" },
+  { "repo": "parallel-protocol/parallel-x402-agent-starter", "number": 2, "note": "w1 org starter" },
+  { "repo": "tevfikefeaydin/x402-agent-starter", "number": 1, "note": "w1 buyer starter" },
+  { "repo": "mariano-aguero/arbitrum-agent-payments", "number": 1, "note": "w1 claude pay tools" },
+  { "repo": "Br0ski777/x402-trading-agent-starter", "number": 2, "note": "w1 trading agent" },
+  { "repo": "kzmttkc/vet402-agent-template", "number": 1, "note": "w1 compose vet402" },
+  { "repo": "valeo-cash/x402-agent-starter", "number": 1, "note": "w1 sentinel complement" },
+  { "repo": "Omnivalent/x402-agent-pay", "number": 1, "note": "w1 AgentPayClient" },
+  { "repo": "nirholas/x402-approval-page", "number": 1, "note": "w1 HITL spend cap" },
+  { "repo": "daydreamsai/lucid-agents", "number": 1713, "note": "w1 example adapter" },
+  { "repo": "routexcc/x402-agent-starter", "number": 1, "note": "parked low-signal" },
+  { "repo": "BlockRunAI/Franklin", "number": 135, "note": "w2 wallet agent" },
+  { "repo": "BlockRunAI/ClawRouter", "number": 267, "note": "w2 paid LLM hops" },
+  { "repo": "BlockRunAI/blockrun-mcp", "number": 109, "note": "w2 MCP pay-per-call" },
+  { "repo": "solana-foundation/pay", "number": 444, "note": "w2 multi-rail CLI" },
+  { "repo": "qntx/openai-python", "number": 39, "note": "w2 paying OpenAI client" },
+  { "repo": "nikoSchoinas/routeweiler-python-sdk", "number": 4, "note": "w2 multi-rail 402" },
+  { "repo": "lightninglabs/lightning-agent-tools", "number": 29, "note": "w2 L402 toolkit" },
+  { "repo": "apify/mcpc", "number": 379, "note": "w2 MCP CLI" },
+  { "repo": "google-agentic-commerce/a2a-x402", "number": 168, "note": "w2 A2A examples" },
+  { "repo": "daydreamsai/daydreams", "number": 696, "note": "w2 commerce toolkit" }
+]

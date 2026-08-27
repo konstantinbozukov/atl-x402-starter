@@ -8,7 +8,9 @@
     "demo": "tsx src/demo.ts",
     "demo:headers": "tsx src/demo-headers.ts",
     "demo:gif": "tsx src/demo-headers.ts > docs/demo-headers-output.txt 2>&1 && python scripts/make-demo-gif.py",
-    "pay": "tsx src/pay-with-atl.ts"
+    "pay": "tsx src/pay-with-atl.ts",
+    "drop-in": "tsx src/drop-in.ts",
+    "outreach:check": "tsx scripts/outreach-check.ts"
   },
   "license": "MIT",
   "engines": {

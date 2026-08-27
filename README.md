@@ -25,6 +25,18 @@ You should see:
 
 Live seller: https://signals.edge.report
 
+## Drop-in + free pioneer (no maintainer PR)
+
+```bash
+npm run drop-in
+```
+
+- Claims a **free** `/v1/atl/free/gas` credit (header only — no wallet)
+- Soft ATL on `/v1/token-risk`
+- Prints a copy-paste `withAtl` snippet
+
+Pioneer board: https://signals.edge.report/v1/atl/pioneers · [docs/PIONEERS.md](./docs/PIONEERS.md)
+
 ## Five-line agent pattern
 
 ```js

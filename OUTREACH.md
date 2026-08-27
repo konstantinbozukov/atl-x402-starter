@@ -1,18 +1,40 @@
 # First outreach checklist
 
+## Notifications (do this once — real-time)
+
+Issues you **open** should auto-subscribe you as Participating. Still verify:
+
+1. GitHub → Settings → Notifications  
+   - **Participating** email + web = on  
+   - Optional: GitHub **mobile app** push for Participating (best for answer-right-away)
+2. Do **not** Watch whole target repos (noise). Only stay subscribed to the issues you filed.
+3. Backup poll: `npm run outreach:check` (see below)
+
 ## Before filing
 
 - [ ] `npm run demo:headers` passes locally
 - [ ] README + DEMO.md match live seller behavior
-- [ ] TARGETS.md: use the **First 10 asks** list (skip routexcc wait)
+- [ ] TARGETS.md: use the **Wave 1 / Wave 2** lists
 
 ## Issues (batch OK)
 
 1. Open issues using `.github/ISSUE_TEMPLATE.md` text (ASCII punctuation).
-2. Title: `Optional ATL trust headers on x402 fetch (fail-open)?`
+2. Title: `Optional ATL trust headers on x402 fetch (fail-open)?` (adapt per repo)
 3. Link `atl-x402-starter` + `demo:headers`.
-4. File the screened 10 in parallel if desired; do **not** spam Discord the same day.
+4. Add the issue to `scripts/outreach-issues.json` so `outreach:check` tracks it.
 5. Special pitches: valeo = complementary to Sentinel; vet402 = compose with their allowlist (not replace).
+
+## Track replies
+
+```bash
+npm run outreach:check
+```
+
+- First run baselines `logs/outreach-state.json`
+- Later runs print `!! REPLY` when comment count increases
+- Optional: Windows Task Scheduler every 1–2h, or a Cursor `/loop 1h` that runs the check and pings you only on alerts
+
+For **immediate** reply: rely on GitHub email/mobile, not the poller.
 
 ## Wait / PR
 
@@ -31,4 +53,4 @@
 ## After merge or close
 
 - Update TARGETS.md with result (merged / closed / asked changes).
-- Then expand to Hold/later list or bounty channel.
+- Then expand to Wave 2 or bounty channel.
