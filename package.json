@@ -1,0 +1,24 @@
+{
+  "name": "atl-x402-starter",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Demo home: optional Agent Trust Layer (ATL) on x402 paid fetch — fail-open, zero cost without headers",
+  "type": "module",
+  "scripts": {
+    "demo": "tsx src/demo.ts",
+    "demo:headers": "tsx src/demo-headers.ts",
+    "pay": "tsx src/pay-with-atl.ts"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@x402/evm": "^2.21.0",
+    "@x402/fetch": "^2.21.0",
+    "agent-trust-layer": "file:./vendor/agent-trust-layer-0.1.1.tgz",
+    "dotenv": "^17.4.2",
+    "tsx": "^4.23.11",
+    "viem": "^2.55.11"
+  }
+}
