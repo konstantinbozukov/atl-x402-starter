@@ -11,6 +11,17 @@ npm run demo:headers
 
 No wallet. Hits live `https://signals.edge.report`.
 
+### Animated capture
+
+![demo:headers](./demo-headers.gif)
+
+Regenerate after seller behavior changes:
+
+```bash
+npm run demo:headers 2>&1 | Out-File -Encoding utf8 docs/demo-headers-output.txt
+python scripts/make-demo-gif.py
+```
+
 ## Expected output (shape)
 
 ```
@@ -39,9 +50,15 @@ PASS: zero-cost without header; soft ATL with header; consult OK.
 
 ## Optional: record a GIF
 
-1. Run `npm run demo:headers` in a clean terminal.
-2. Capture with [asciinema](https://asciinema.org/) or Windows Game Bar / CapCut.
-3. Attach to the GitHub issue/PR (15–30s is enough).
+Already checked in: [`docs/demo-headers.gif`](./demo-headers.gif) (generated from a real `demo:headers` run).
+
+To refresh:
+
+```bash
+npm run demo:gif
+```
+
+Or manually: capture transcript → `python scripts/make-demo-gif.py`.
 
 ## Optional: real pay
 

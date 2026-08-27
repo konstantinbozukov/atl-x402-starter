@@ -13,6 +13,8 @@ npm install
 npm run demo:headers
 ```
 
+![demo:headers — with vs without X-ATL-Agent-Id](./docs/demo-headers.gif)
+
 You should see:
 
 | Call | Result |
