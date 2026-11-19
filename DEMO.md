@@ -13,7 +13,7 @@ No wallet. Hits live `https://signals.edge.report`.
 
 ### Animated capture
 
-![demo:headers](./demo-headers.gif)
+![demo:headers](./docs/demo-headers.gif)
 
 Regenerate after seller behavior changes:
 
@@ -50,7 +50,7 @@ PASS: zero-cost without header; soft ATL with header; consult OK.
 
 ## Optional: record a GIF
 
-Already checked in: [`docs/demo-headers.gif`](./demo-headers.gif) (generated from a real `demo:headers` run).
+Already checked in: [`docs/demo-headers.gif`](./docs/demo-headers.gif) (generated from a real `demo:headers` run).
 
 To refresh:
 

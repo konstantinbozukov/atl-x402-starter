@@ -11,6 +11,7 @@ import {
   createJsonlLedger,
   withAtl,
 } from "agent-trust-layer";
+import { readResponseJson } from "./read-response-json.js";
 
 const SELLER = (
   process.env.SELLER_BASE ?? "https://signals.edge.report"
@@ -30,13 +31,16 @@ async function main() {
   const freeRes = await fetch(freeUrl, {
     headers: { "X-ATL-Agent-Id": AGENT },
   });
-  const freeBody = await freeRes.json().catch(() => ({}));
+  const { parsed: freeBody, diagnostic: freeDiagnostic } =
+    await readResponseJson(freeRes);
   console.log("=== Free pioneer GET /v1/atl/free/gas ===");
   console.log(`HTTP ${freeRes.status}`);
   console.log("X-ATL-Free:", freeRes.headers.get("x-atl-free"));
   console.log("X-ATL-Verdict:", freeRes.headers.get("x-atl-verdict"));
   console.log("X-ATL-Score:", freeRes.headers.get("x-atl-score"));
-  if (freeRes.status === 200) {
+  if (freeDiagnostic) {
+    console.log(freeDiagnostic);
+  } else if (freeRes.status === 200) {
     console.log("pioneer:", (freeBody as { pioneer?: unknown }).pioneer);
   } else {
     console.log(JSON.stringify(freeBody, null, 2));
@@ -97,10 +101,15 @@ const { body } = await withAtl(fetchPaid, url, {
   );
 
   const board = await fetch(`${SELLER}/v1/atl/pioneers`);
-  const pioneers = await board.json();
+  const { parsed: pioneers, diagnostic: boardDiagnostic } =
+    await readResponseJson(board);
   console.log("=== Pioneer board ===");
   console.log(`GET ${SELLER}/v1/atl/pioneers`);
-  console.log(`count=${(pioneers as { count?: number }).count ?? "?"}`);
+  if (boardDiagnostic) {
+    console.log(boardDiagnostic);
+  } else {
+    console.log(`count=${(pioneers as { count?: number }).count ?? "?"}`);
+  }
   console.log("\nDone. Free credit + soft headers need no maintainer PR.");
 }
 

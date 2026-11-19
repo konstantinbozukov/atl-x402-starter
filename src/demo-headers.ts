@@ -5,6 +5,8 @@
  *   npm install
  *   npm run demo:headers
  */
+import { readResponseJson } from "./read-response-json.js";
+
 const SELLER = (
   process.env.SELLER_BASE ?? "https://signals.edge.report"
 ).replace(/\/$/, "");
@@ -49,16 +51,30 @@ async function main() {
       amountUsd: 0.001,
     }),
   });
-  const consult = await consultRes.json();
+  const { parsed: consult, diagnostic: consultDiagnostic } =
+    await readResponseJson(consultRes);
   console.log("\n=== C) Free POST /v1/atl/consult ===");
-  console.log(JSON.stringify(consult, null, 2));
+  if (consultDiagnostic) {
+    console.error(consultDiagnostic);
+  } else {
+    console.log(JSON.stringify(consult, null, 2));
+  }
 
   console.log("\n--- verdict ---");
-  if (!a.hasAtl && b.hasAtl && consult.protocol === "atl") {
+  const consultRecord = consult as { protocol?: string } | null;
+  if (
+    !a.hasAtl &&
+    b.hasAtl &&
+    consultRecord?.protocol === "atl"
+  ) {
     console.log("PASS: zero-cost without header; soft ATL with header; consult OK.");
     process.exit(0);
   }
-  console.error("FAIL: unexpected header/consult behavior.");
+  if (consultDiagnostic) {
+    console.error("FAIL: consult endpoint did not return JSON (see diagnostic above).");
+  } else {
+    console.error("FAIL: unexpected header/consult behavior.");
+  }
   process.exit(1);
 }
 
